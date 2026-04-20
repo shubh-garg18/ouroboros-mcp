@@ -1,0 +1,18 @@
+# secrets
+.env
+
+# virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# build artifacts
+dist/
+*.egg-info/
+
+# editor
+.idea/
+.vscode/
