@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "agent"
+name = "ouroboros"
 version = "0.1.0"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["src/ouroboros", "src/code_fixer"]

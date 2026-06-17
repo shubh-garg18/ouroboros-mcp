@@ -1,4 +1,4 @@
-# src/agentic_mcp/tools/local/file_ops.py
+# ouroboros/tools/local/file_ops.py
 """Sandboxed file reader.
 
 Reads files under a workspace directory only. Path traversal is blocked
@@ -6,7 +6,7 @@ by resolving and checking containment.
 """
 from pathlib import Path
 
-from tools.schema import Tool
+from ouroboros.tools.schema import Tool
 
 WORKSPACE = Path("./workspace").resolve()
 WORKSPACE.mkdir(exist_ok=True)

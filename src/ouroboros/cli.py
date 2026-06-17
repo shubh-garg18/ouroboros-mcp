@@ -10,11 +10,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent.parent / ".env")
 
-from agent.loop import run_agent
-from llm.gemini import GeminiProvider
-from tools.local.calculator import calculator_tool
-from tools.local.file_ops import read_file_tool
-from tools.schema import ToolRegistry
+from ouroboros.agent.loop import run_agent
+from ouroboros.llm.gemini import GeminiProvider
+from ouroboros.tools.local.calculator import calculator_tool
+from ouroboros.tools.local.file_ops import read_file_tool
+from ouroboros.tools.schema import ToolRegistry
 
 
 def main() -> int:

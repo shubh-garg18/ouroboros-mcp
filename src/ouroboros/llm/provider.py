@@ -8,8 +8,8 @@ depend on which provider is behind this.
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
-from agent.state import Message, ToolCall
-from tools.schema import Tool
+from ouroboros.agent.state import Message, ToolCall
+from ouroboros.tools.schema import Tool
 
 @dataclass
 class LLMResponse:

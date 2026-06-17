@@ -15,9 +15,9 @@ import uuid
 from google import genai
 from google.genai import types
 
-from agent.state import Message, ToolCall, Role
-from llm.provider import LLMProvider, LLMResponse
-from tools.schema import Tool
+from ouroboros.agent.state import Message, ToolCall, Role
+from ouroboros.llm.provider import LLMProvider, LLMResponse
+from ouroboros.tools.schema import Tool
 
 class GeminiProvider:
     def __init__(

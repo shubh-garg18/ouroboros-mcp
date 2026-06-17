@@ -1,4 +1,4 @@
-# src/agentic_mcp/tools/local/calculator.py
+# ouroboros/tools/local/calculator.py
 """Safe arithmetic evaluator.
 
 Uses Python's AST module to parse the expression and evaluate only a
@@ -8,7 +8,7 @@ import ast
 import operator
 from typing import Any
 
-from tools.schema import Tool
+from ouroboros.tools.schema import Tool
 
 _ALLOWED_BINOPS = {
     ast.Add: operator.add,

@@ -16,3 +16,9 @@ dist/
 # editor
 .idea/
 .vscode/
+
+# local Claude config — never committed; persists across branch switches
+.claude/
+
+# agent sandbox I/O — runtime scratch, not source
+workspace/

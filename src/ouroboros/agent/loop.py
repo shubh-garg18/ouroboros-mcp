@@ -11,13 +11,13 @@ from __future__ import annotations
 import json
 import time
 
-from agent.errors import (
+from ouroboros.agent.errors import (
     BudgetExhaustedError,
     LoopDetectedError,
     ToolNotFoundError,
 )
-from agent.prompts import SYSTEM_PROMPT
-from agent.state import (
+from ouroboros.agent.prompts import SYSTEM_PROMPT
+from ouroboros.agent.state import (
     AgentState,
     Message,
     Role,
@@ -25,13 +25,14 @@ from agent.state import (
     ToolCall,
     ToolResult,
 )
-from llm.provider import LLMProvider
-from tools.schema import ToolRegistry
+from ouroboros.llm.provider import LLMProvider
+from ouroboros.tools.schema import ToolSource
 
 def run_agent(
     goal:str,
     llm:LLMProvider,
-    registry:ToolRegistry,
+    registry:ToolSource,
+    system_prompt:str=SYSTEM_PROMPT,
     max_steps:int=10,
 )->AgentState:
     """Drive the agent loop until a final answer is produced or the step budget is exhausted."""
@@ -55,7 +56,7 @@ def run_agent(
         
         # 1. Ask LLM what to do next
         response=llm.complete(
-            system_prompt=SYSTEM_PROMPT,
+            system_prompt=system_prompt,
             messages=state.messages,
             tools=registry.all_tools(),
         )
@@ -105,7 +106,7 @@ def run_agent(
 
 def _dispatch_tool(
     call:ToolCall,
-    registry:ToolRegistry,
+    registry:ToolSource,
 )->ToolResult:
     """Look up the requested tool in the registry and invoke it, returning a structured result even on failure."""
     tool=registry.get(call.name)

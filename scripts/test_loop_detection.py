@@ -1,11 +1,7 @@
 """Test 3: loop detection — directly exercise _check_loop with 3 identical tool calls."""
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
-
-from agent.errors import LoopDetectedError
-from agent.loop import _check_loop
-from agent.state import AgentState, StepLog, ToolCall
+from ouroboros.agent.errors import LoopDetectedError
+from ouroboros.agent.loop import _check_loop
+from ouroboros.agent.state import AgentState, StepLog, ToolCall
 
 def make_call(name="broken_search", args=None):
     return ToolCall(id="x", name=name, arguments=args or {"query": "France"})

@@ -7,13 +7,10 @@ The LLM is too smart to call read_file("/etc/passwd") after reading the tool des
   step 2 — _dispatch_tool wraps it as ToolResult(is_error=True)   ← the observation
   (the LLM would then see the error and report "can't read that file")
 """
-import sys
-sys.path.insert(0, "src")
-
-from agent.loop import _dispatch_tool
-from agent.state import ToolCall
-from tools.local.file_ops import read_file, read_file_tool
-from tools.schema import ToolRegistry
+from ouroboros.agent.loop import _dispatch_tool
+from ouroboros.agent.state import ToolCall
+from ouroboros.tools.local.file_ops import read_file, read_file_tool
+from ouroboros.tools.schema import ToolRegistry
 
 SEPARATOR = "-" * 60
 
